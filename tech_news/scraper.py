@@ -9,13 +9,11 @@ def fetch(url):
     try:
         time.sleep(1)
         response = requests.get(url, headers=headers, timeout=3)
-        print(response)
 
-        if requests.status_codes == 200:
+        if response.status_code == 200:
             return response.text
         else:
             return None
-
     except requests.Timeout:
         return None
 
