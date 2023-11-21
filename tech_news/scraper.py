@@ -43,8 +43,8 @@ def scrape_next_page_link(html_content):
 # Requisito 4
 def scrape_news(html_content):
     selector = parsel.Selector(text=html_content)
-    
-    return  {
+
+    return {
         "url": selector.css("link[rel=canonical]::attr(href)").get(),
         "title": selector.css(".entry-title::text").get().strip(),
         "timestamp": selector.css(".meta-date::text").get(),
