@@ -4,7 +4,8 @@ from tech_news.database import db
 
 # Requisito 10
 def top_5_categories():
-    categories = [news["category"] for news in db.news.find()]
+    news_found = db.news.find()
+    categories = [news["category"] for news in news_found]
 
     top_all = sorted(
         collections.Counter(categories).items(),
